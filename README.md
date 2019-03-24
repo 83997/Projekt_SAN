@@ -1,2 +1,2 @@
-# Projekt_SAN
+# Projekt SAN
 Projekt szkolny - Wersja finalna
