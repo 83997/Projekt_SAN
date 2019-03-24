@@ -1,2 +1,2 @@
 # Projekt SAN
-Projekt szkolny - Wersja alfa
+Projekt szkolny
