@@ -10,6 +10,7 @@ Przykład dokumentacji API, serwis komunikuje się za pomocą HTTP, dane przekaz
 |Url|v1/token/generate|
 |Method|GET|
 |Params|none|
+
 Body:
 ```javascript
 none
@@ -27,6 +28,7 @@ Response:
 |Url|v1/sample/save|
 |Method|POST|
 |Params|none|
+
 Body: 
 ```javascript
 {  
@@ -47,6 +49,7 @@ code:200
 |Url|v1/score/top|
 |Method|GET|
 |Params|```"token":"74d51edd-3767-433d-9a91-1bc970904022","count":10```|
+
 Body:
 ```javascript
 none
@@ -67,6 +70,7 @@ Response:
 |Url|v1/score/my|
 |Method|GET|
 |Params|```"token":"74d51edd-3767-433d-9a91-1bc970904022"```|
+
 Body:
 ```javascript
 none
