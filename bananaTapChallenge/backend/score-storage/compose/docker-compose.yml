@@ -1,0 +1,23 @@
+version: '2.2'
+
+services:
+  postgres:
+    image: postgres
+    container_name: postgres
+    environment:
+      - POSTGRES_USER=${SCORE_STORE_RDBMS_USERNAME}
+      - POSTGRES_PASSWORD=${SCORE_STORE_RDBMS_PASSWORD}
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    volumes:
+      - postgresql:/var/lib/postgresql
+      - postgresql_data:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+
+volumes:
+  postgresql:
+  postgresql_data:
