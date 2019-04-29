@@ -18,8 +18,10 @@ none
 Response:
 ```javascript
 {  
- "token":"74d51edd-3767-433d-9a91-1bc970904022"  
+ "token":"74d51edd-3767-433d-9a91-1bc970904022" 
+ "Name":"The name value is already taken"
 }
+
 ```
 
 ### Endpoint
@@ -58,7 +60,7 @@ Response:
 ```javascript
 [  
  {  
-  "idDevice":"432423423",  
+  "Name":"432423423",  
   "score":"4323"  
  }  
 ]
