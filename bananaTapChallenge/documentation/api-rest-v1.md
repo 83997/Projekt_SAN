@@ -61,6 +61,7 @@ Response:
 ```javascript
 [  
  {
+  "idDevice":"3d476674"
   "score":"4323"  
  }  
 ]
