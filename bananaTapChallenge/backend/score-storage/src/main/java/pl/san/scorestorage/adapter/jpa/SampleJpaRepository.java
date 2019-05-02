@@ -10,6 +10,10 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.IdGenerator;
 
+import java.util.List;
+import java.util.UUID;
+import java.util.stream.Collectors;
+
 import static com.google.common.base.Preconditions.checkArgument;
 
 @Slf4j
@@ -40,6 +44,25 @@ class SampleJpaRepository implements SampleRepository {
         entity.setDevice(deviceEntity);
 
         sampleDataRepository.save(entity);
+    }
+
+    @Override
+    public List<Sample> getSamplesByToken(UUID token) {
+        DeviceEntity deviceEntity = deviceDataRepository.findByToken(token);
+        List<SampleEntity> sampleEntities = sampleDataRepository.findByDevice(deviceEntity);
+        List<Sample> samples = sampleEntities.stream()
+                .map(this::mapToSample)
+                .collect(Collectors.toList());
+        return samples;
+    }
+
+    private Sample mapToSample(SampleEntity sampleEntity){
+        DeviceEntity deviceEntity = sampleEntity.getDevice();
+        return new Sample(deviceEntity.getToken(),
+                sampleEntity.getOccuredOn(),
+                sampleEntity.getFinishedOn(),
+                sampleEntity.getCount(),
+                sampleEntity.getScore());
     }
 
 }
