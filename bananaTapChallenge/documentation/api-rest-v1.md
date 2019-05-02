@@ -62,7 +62,7 @@ Response:
 [  
  {
   "idDevice":"3d476674"
-  "score":"4323"  
+  "score": 4323
  }  
 ]
 ```
