@@ -6,10 +6,8 @@ import org.springframework.stereotype.Repository;
 import java.util.UUID;
 
 @Repository
-@RepositoryDefinition(domainClass = DeviceEntity.class, idClass = UUID.class)
-interface DeviceDataRepository {
+@RepositoryDefinition(domainClass = SampleEntity.class, idClass = UUID.class)
+interface SampleDataRepository {
 
-    void save(DeviceEntity device);
-
-    DeviceEntity findByToken(UUID token);
+    void save(SampleEntity sample);
 }
