@@ -19,7 +19,6 @@ Response:
 ```javascript
 {  
  "token":"74d51edd-3767-433d-9a91-1bc970904022" 
- "Name":"The name value is already taken"
 }
 
 ```
@@ -42,7 +41,9 @@ Body:
 ```
 Response:
 ```javascript
-code:200
+{
+"score": 6576693
+}
 ```
 
 ### Endpoint
@@ -59,8 +60,7 @@ none
 Response:
 ```javascript
 [  
- {  
-  "Name":"432423423",  
+ {
   "score":"4323"  
  }  
 ]
@@ -79,8 +79,7 @@ none
 ```
 Response:
 ```javascript
-{  
- "idDevice":"432423423",  
- "score":"4323"  
+{
+"totalScore": 6576693
 }
 ```
