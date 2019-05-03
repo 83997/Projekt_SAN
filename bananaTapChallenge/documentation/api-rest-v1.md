@@ -51,7 +51,7 @@ Response:
 |-|-|
 |Url|v1/score/top|
 |Method|GET|
-|Params|```"token":"74d51edd-3767-433d-9a91-1bc970904022","count":10```|
+|Params|```"count":10```|
 
 Body:
 ```javascript
@@ -61,8 +61,7 @@ Response:
 ```javascript
 [  
  {
-  "idDevice":"3d476674"
-  "score": 4323
+  "totalScore": 4323
  }  
 ]
 ```
