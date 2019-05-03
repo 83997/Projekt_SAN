@@ -1,6 +1,7 @@
 package pl.san.scorestorage.adapter.jpa;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.PageRequest;
 import pl.san.scorestorage.domain.Sample;
 import pl.san.scorestorage.domain.port.SampleRepository;
 
@@ -54,6 +55,13 @@ class SampleJpaRepository implements SampleRepository {
                 .map(this::mapToSample)
                 .collect(Collectors.toList());
         return samples;
+    }
+
+    @Override
+    public List<Long> getTopTotalScores(int count) {
+        PageRequest pageRequest = PageRequest.of(0, count);
+        List<Long> topScores = sampleDataRepository.findTopTotalScores(pageRequest);
+        return topScores;
     }
 
     private Sample mapToSample(SampleEntity sampleEntity){

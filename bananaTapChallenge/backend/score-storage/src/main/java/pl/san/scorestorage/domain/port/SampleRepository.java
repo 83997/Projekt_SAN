@@ -8,4 +8,5 @@ import java.util.UUID;
 public interface SampleRepository {
     void create(Sample sample);
     List<Sample> getSamplesByToken(UUID token);
+    List<Long> getTopTotalScores(int count);
 }

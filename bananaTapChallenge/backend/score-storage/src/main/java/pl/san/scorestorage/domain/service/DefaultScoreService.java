@@ -21,4 +21,10 @@ public class DefaultScoreService implements ScoreService {
         long totalScore = samples.stream().mapToLong(sample -> sample.getScore()).sum();
         return totalScore;
     }
+
+    @Override
+    public List<Long> getTopTotalScores(int count) {
+        List<Long> topScores = sampleRepository.getTopTotalScores(count);
+        return topScores;
+    }
 }
