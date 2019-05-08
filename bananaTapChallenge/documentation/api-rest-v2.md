@@ -61,8 +61,14 @@ Response:
 ```javascript
 [  
  {
-  "totalScore": 4323
- }  
+"totalScore": 92655930
+},
+{
+"totalScore": 1669341
+},
+{
+"totalScore": 57070
+}
 ]
 ```
 
