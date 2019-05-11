@@ -4,12 +4,12 @@
 
 Przykład dokumentacji API, serwis komunikuje się za pomocą HTTP, dane przekazywane w formacie JSON
 
-### Endpoint
+### Endpoint returns a unique device key 
 |Name|Value|
 |-|-|
 |Url|v1/token/generate|
 |Method|GET|
-|Params|none|
+|Params|```"name":"user1```|
 
 Body:
 ```javascript
@@ -22,8 +22,13 @@ Response:
 }
 
 ```
+Error response:
+W przypadku kiedy name jest niepoprawny lub zajęty
+```javascript
+code: 409
+```
 
-### Endpoint
+### Endpoint recording of samples
 |Name|Value|
 |-|-|
 |Url|v1/sample/save|
@@ -46,7 +51,7 @@ Response:
 }
 ```
 
-### Endpoint
+### Endpoint returns top results
 |Name|Value|
 |-|-|
 |Url|v1/score/top|
@@ -62,17 +67,20 @@ Response:
 [  
  {
 "totalScore": 92655930
+"name":"user1"
 },
 {
 "totalScore": 1669341
+"name":"user2"
 },
 {
 "totalScore": 57070
+"name":"user2"
 }
 ]
 ```
 
-### Endpoint
+### Endpoint returns the sum of the device score
 |Name|Value|
 |-|-|
 |Url|v1/score/my|
@@ -87,5 +95,6 @@ Response:
 ```javascript
 {
 "totalScore": 6576693
+"name":"user1"
 }
 ```
