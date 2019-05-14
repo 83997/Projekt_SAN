@@ -28,12 +28,15 @@ class DeviceEntity {
     private UUID token;
 
     @NotNull
+    @Column(name = "name", nullable = false)
+    private String name;
+
+    @NotNull
     @Column(name = "created", nullable = false)
     private OffsetDateTime created;
 
     @NotNull
     @Column(name = "status", nullable = false)
     private Status status;
-
 
 }

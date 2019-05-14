@@ -2,7 +2,10 @@ package pl.san.scorestorage.domain.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import pl.san.scorestorage.domain.Device;
 import pl.san.scorestorage.domain.Sample;
+import pl.san.scorestorage.domain.Score;
+import pl.san.scorestorage.domain.port.DeviceRepository;
 import pl.san.scorestorage.domain.port.SampleRepository;
 import pl.san.scorestorage.domain.port.ScoreService;
 
@@ -15,16 +18,20 @@ public class DefaultScoreService implements ScoreService {
     @Autowired
     private SampleRepository sampleRepository;
 
+    @Autowired
+    private DeviceRepository deviceRepository;
+
     @Override
-    public long getTotalScoreByToken(UUID tokenDevice) {
+    public Score getTotalScoreByToken(UUID tokenDevice) {
         List<Sample> samples = sampleRepository.getSamplesByToken(tokenDevice);
         long totalScore = samples.stream().mapToLong(sample -> sample.getScore()).sum();
-        return totalScore;
+        Device device = deviceRepository.findByToken(tokenDevice);
+        return new Score(totalScore, device.getName());
     }
 
     @Override
-    public List<Long> getTopTotalScores(int count) {
-        List<Long> topScores = sampleRepository.getTopTotalScores(count);
+    public List<Score> getTopTotalScores(int count) {
+        List<Score> topScores = sampleRepository.getTopTotalScores(count);
         return topScores;
     }
 }

@@ -6,7 +6,7 @@
 
 | Nazwa                      | Wartość domyślna                               | Opis                                     |
 | -------------------------- | ---------------------------------------------- | ---------------------------------------- |
-| SCORE_STORE_RDBMS_URL      | `jdbc:postgresql://postgres:5432/postgres`     | URL połączenia z bazą danych PostgreSQL  |
+| SCORE_STORE_RDBMS_URL      | `jdbc:postgresql://localhost:5432/postgres`     | URL połączenia z bazą danych PostgreSQL  |
 | SCORE_STORE_RDBMS_USERNAME | `postgres`                                     | Nazwa użytkownika bazy danych PostgreSQL |
 | SCORE_STORE_RDBMS_PASSWORD | `postgres`                                     | Hasło użytkownika bazy danych PostgreSQL |
 

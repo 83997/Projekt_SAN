@@ -1,15 +1,16 @@
 package pl.san.scorestorage.adapter.jpa;
 
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.data.domain.PageRequest;
-import pl.san.scorestorage.domain.Sample;
-import pl.san.scorestorage.domain.port.SampleRepository;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.IdGenerator;
+import pl.san.scorestorage.adapter.jpa.dto.ScoreDTO;
+import pl.san.scorestorage.domain.Sample;
+import pl.san.scorestorage.domain.Score;
+import pl.san.scorestorage.domain.port.SampleRepository;
 
 import java.util.List;
 import java.util.UUID;
@@ -41,7 +42,7 @@ class SampleJpaRepository implements SampleRepository {
         entity.setScore(sample.getScore());
 
         DeviceEntity deviceEntity = deviceDataRepository.findByToken(sample.getTokenDevice());
-        checkArgument(deviceEntity!=null, "No device token found");
+        checkArgument(deviceEntity != null, "No device token found");
         entity.setDevice(deviceEntity);
 
         sampleDataRepository.save(entity);
@@ -58,19 +59,24 @@ class SampleJpaRepository implements SampleRepository {
     }
 
     @Override
-    public List<Long> getTopTotalScores(int count) {
+    public List<Score> getTopTotalScores(int count) {
         PageRequest pageRequest = PageRequest.of(0, count);
-        List<Long> topScores = sampleDataRepository.findTopTotalScores(pageRequest);
-        return topScores;
+        List<ScoreDTO> topScores = sampleDataRepository.findTopTotalScores(pageRequest);
+        List<Score> topScoresResult = topScores.stream().map(this::mapToScore).collect(Collectors.toList());
+        return topScoresResult;
     }
 
-    private Sample mapToSample(SampleEntity sampleEntity){
+    private Sample mapToSample(SampleEntity sampleEntity) {
         DeviceEntity deviceEntity = sampleEntity.getDevice();
         return new Sample(deviceEntity.getToken(),
                 sampleEntity.getOccuredOn(),
                 sampleEntity.getFinishedOn(),
                 sampleEntity.getCount(),
                 sampleEntity.getScore());
+    }
+
+    private Score mapToScore(ScoreDTO scoreDTO) {
+        return new Score(scoreDTO.getTotalScore(), scoreDTO.getName());
     }
 
 }
