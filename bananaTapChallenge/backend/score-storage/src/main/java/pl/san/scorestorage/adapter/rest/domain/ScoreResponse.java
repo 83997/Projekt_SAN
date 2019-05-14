@@ -4,5 +4,6 @@ import lombok.Value;
 
 @Value
 public class ScoreResponse {
-     private Long totalScore;
+     private long totalScore;
+     private String name;
 }

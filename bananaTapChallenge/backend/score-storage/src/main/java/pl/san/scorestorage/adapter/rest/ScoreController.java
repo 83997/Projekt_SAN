@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import pl.san.scorestorage.adapter.rest.domain.ScoreResponse;
+import pl.san.scorestorage.domain.Score;
+import pl.san.scorestorage.domain.port.DeviceService;
 import pl.san.scorestorage.domain.port.ScoreService;
 
 import java.util.List;
@@ -25,19 +27,26 @@ public class ScoreController {
     @Autowired
     private ScoreService scoreService;
 
+    @Autowired
+    private DeviceService deviceService;
+
     @GetMapping("/my")
     public ResponseEntity<ScoreResponse> getTotalScoreByToken(@RequestParam UUID token) {
-        long totalScore = scoreService.getTotalScoreByToken(token);
-        ScoreResponse scoreResponse = new ScoreResponse(totalScore);
+        Score totalScore = scoreService.getTotalScoreByToken(token);
+        ScoreResponse scoreResponse = map(totalScore);
         return new ResponseEntity<>(scoreResponse, HttpStatus.OK);
     }
 
     @GetMapping("/top")
     public ResponseEntity<List<ScoreResponse>> getTopTotalScores(@RequestParam int count) {
-        List<Long> scores = scoreService.getTopTotalScores(count);
+        List<Score> scores = scoreService.getTopTotalScores(count);
         List<ScoreResponse> scoreResponses = scores.stream()
-                    .map(score -> new ScoreResponse(score))
-                    .collect(Collectors.toList());
+                .map(this::map)
+                .collect(Collectors.toList());
         return new ResponseEntity<>(scoreResponses, HttpStatus.OK);
+    }
+
+    private ScoreResponse map(Score score) {
+        return new ScoreResponse(score.getTotalScore(), score.getName());
     }
 }

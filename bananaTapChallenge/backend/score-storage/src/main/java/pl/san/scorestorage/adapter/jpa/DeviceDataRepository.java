@@ -12,4 +12,6 @@ interface DeviceDataRepository {
     void save(DeviceEntity device);
 
     DeviceEntity findByToken(UUID token);
+
+    boolean existsByName(String name);
 }
