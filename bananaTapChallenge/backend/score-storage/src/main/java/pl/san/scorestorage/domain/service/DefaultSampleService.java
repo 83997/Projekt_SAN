@@ -31,7 +31,7 @@ public class DefaultSampleService implements SampleService {
 
     private long calculateScore(OffsetDateTime start, OffsetDateTime end, Long count){
         long seconds = start.until( end, SECONDS);
-        double speed = count/seconds;
+        double speed = (double)count/(double)seconds;
         double speedGain = speed*SPEED_GAIN;
         double timeGain = seconds*TIME_GAIN;
         return (long)(timeGain*speedGain);
