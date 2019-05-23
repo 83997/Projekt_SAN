@@ -13,9 +13,11 @@
 		4B7E6C4D227592A2002C23B3 /* The_Banana_Tap_Challenge.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4B7E6C4B227592A2002C23B3 /* The_Banana_Tap_Challenge.xcdatamodeld */; };
 		4B7E6C4F227592A3002C23B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B7E6C4E227592A3002C23B3 /* Assets.xcassets */; };
 		4B7E6C52227592A3002C23B3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B7E6C50227592A3002C23B3 /* LaunchScreen.storyboard */; };
+		AC3C62C2F9D9FE2D4CC095C2 /* Pods_The_Banana_Tap_Challenge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4D22CDA50802268971CCE9B /* Pods_The_Banana_Tap_Challenge.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1DC9B55CB6BAA2B17F6C7BD7 /* Pods-The Banana Tap Challenge.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-The Banana Tap Challenge.debug.xcconfig"; path = "Pods/Target Support Files/Pods-The Banana Tap Challenge/Pods-The Banana Tap Challenge.debug.xcconfig"; sourceTree = "<group>"; };
 		4B7E6C41227592A2002C23B3 /* The Banana Tap Challenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "The Banana Tap Challenge.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B7E6C44227592A2002C23B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4B7E6C46227592A2002C23B3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -24,6 +26,8 @@
 		4B7E6C4E227592A3002C23B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4B7E6C51227592A3002C23B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4B7E6C53227592A3002C23B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AC4ECB7ACE77009FECC009BB /* Pods-The Banana Tap Challenge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-The Banana Tap Challenge.release.xcconfig"; path = "Pods/Target Support Files/Pods-The Banana Tap Challenge/Pods-The Banana Tap Challenge.release.xcconfig"; sourceTree = "<group>"; };
+		C4D22CDA50802268971CCE9B /* Pods_The_Banana_Tap_Challenge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_The_Banana_Tap_Challenge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +35,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC3C62C2F9D9FE2D4CC095C2 /* Pods_The_Banana_Tap_Challenge.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4135D3D56CB11C53383CBFCB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C4D22CDA50802268971CCE9B /* Pods_The_Banana_Tap_Challenge.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		4B7E6C38227592A2002C23B3 = {
 			isa = PBXGroup;
 			children = (
 				4B7E6C43227592A2002C23B3 /* The Banana Tap Challenge */,
 				4B7E6C42227592A2002C23B3 /* Products */,
+				7B50BF14D6D86CD46706E6E7 /* Pods */,
+				4135D3D56CB11C53383CBFCB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +82,15 @@
 			path = "The Banana Tap Challenge";
 			sourceTree = "<group>";
 		};
+		7B50BF14D6D86CD46706E6E7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1DC9B55CB6BAA2B17F6C7BD7 /* Pods-The Banana Tap Challenge.debug.xcconfig */,
+				AC4ECB7ACE77009FECC009BB /* Pods-The Banana Tap Challenge.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,9 +98,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4B7E6C56227592A3002C23B3 /* Build configuration list for PBXNativeTarget "The Banana Tap Challenge" */;
 			buildPhases = (
+				CB22E4906D1653F744D117FB /* [CP] Check Pods Manifest.lock */,
 				4B7E6C3D227592A2002C23B3 /* Sources */,
 				4B7E6C3E227592A2002C23B3 /* Frameworks */,
 				4B7E6C3F227592A2002C23B3 /* Resources */,
+				91A23A2D9FB60CFF8EC9442A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -132,6 +158,45 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		91A23A2D9FB60CFF8EC9442A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-The Banana Tap Challenge/Pods-The Banana Tap Challenge-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-The Banana Tap Challenge/Pods-The Banana Tap Challenge-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CB22E4906D1653F744D117FB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-The Banana Tap Challenge-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4B7E6C3D227592A2002C23B3 /* Sources */ = {
@@ -284,15 +349,13 @@
 		};
 		4B7E6C57227592A3002C23B3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1DC9B55CB6BAA2B17F6C7BD7 /* Pods-The Banana Tap Challenge.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M3X3752CBJ;
 				INFOPLIST_FILE = "The Banana Tap Challenge/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "SGMobile.The-Banana-Tap-Challenge";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -302,15 +365,13 @@
 		};
 		4B7E6C58227592A3002C23B3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AC4ECB7ACE77009FECC009BB /* Pods-The Banana Tap Challenge.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M3X3752CBJ;
 				INFOPLIST_FILE = "The Banana Tap Challenge/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "SGMobile.The-Banana-Tap-Challenge";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
