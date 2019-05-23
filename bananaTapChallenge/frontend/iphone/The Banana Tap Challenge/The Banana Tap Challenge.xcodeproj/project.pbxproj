@@ -13,6 +13,8 @@
 		4B7E6C4D227592A2002C23B3 /* The_Banana_Tap_Challenge.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4B7E6C4B227592A2002C23B3 /* The_Banana_Tap_Challenge.xcdatamodeld */; };
 		4B7E6C4F227592A3002C23B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B7E6C4E227592A3002C23B3 /* Assets.xcassets */; };
 		4B7E6C52227592A3002C23B3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B7E6C50227592A3002C23B3 /* LaunchScreen.storyboard */; };
+		4BB8A0B62296D136004D6ABB /* BTLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB8A0B52296D136004D6ABB /* BTLoginViewController.swift */; };
+		4BB8A0BA2296E096004D6ABB /* BTApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB8A0B92296E096004D6ABB /* BTApiManager.swift */; };
 		AC3C62C2F9D9FE2D4CC095C2 /* Pods_The_Banana_Tap_Challenge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4D22CDA50802268971CCE9B /* Pods_The_Banana_Tap_Challenge.framework */; };
 /* End PBXBuildFile section */
 
@@ -26,6 +28,8 @@
 		4B7E6C4E227592A3002C23B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4B7E6C51227592A3002C23B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4B7E6C53227592A3002C23B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4BB8A0B52296D136004D6ABB /* BTLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTLoginViewController.swift; sourceTree = "<group>"; };
+		4BB8A0B92296E096004D6ABB /* BTApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTApiManager.swift; sourceTree = "<group>"; };
 		AC4ECB7ACE77009FECC009BB /* Pods-The Banana Tap Challenge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-The Banana Tap Challenge.release.xcconfig"; path = "Pods/Target Support Files/Pods-The Banana Tap Challenge/Pods-The Banana Tap Challenge.release.xcconfig"; sourceTree = "<group>"; };
 		C4D22CDA50802268971CCE9B /* Pods_The_Banana_Tap_Challenge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_The_Banana_Tap_Challenge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -71,8 +75,9 @@
 		4B7E6C43227592A2002C23B3 /* The Banana Tap Challenge */ = {
 			isa = PBXGroup;
 			children = (
+				4BB8A0B82296E076004D6ABB /* Managers */,
+				4BB8A0B72296D13D004D6ABB /* View Controllers */,
 				4B7E6C44227592A2002C23B3 /* AppDelegate.swift */,
-				4B7E6C46227592A2002C23B3 /* BTGameViewController.swift */,
 				4B7E6C48227592A2002C23B3 /* Main.storyboard */,
 				4B7E6C4E227592A3002C23B3 /* Assets.xcassets */,
 				4B7E6C50227592A3002C23B3 /* LaunchScreen.storyboard */,
@@ -80,6 +85,23 @@
 				4B7E6C4B227592A2002C23B3 /* The_Banana_Tap_Challenge.xcdatamodeld */,
 			);
 			path = "The Banana Tap Challenge";
+			sourceTree = "<group>";
+		};
+		4BB8A0B72296D13D004D6ABB /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				4B7E6C46227592A2002C23B3 /* BTGameViewController.swift */,
+				4BB8A0B52296D136004D6ABB /* BTLoginViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		4BB8A0B82296E076004D6ABB /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				4BB8A0B92296E096004D6ABB /* BTApiManager.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 		7B50BF14D6D86CD46706E6E7 /* Pods */ = {
@@ -168,10 +190,12 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-The Banana Tap Challenge/Pods-The Banana Tap Challenge-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/TPKeyboardAvoiding/TPKeyboardAvoiding.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TPKeyboardAvoiding.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -203,7 +227,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4BB8A0B62296D136004D6ABB /* BTLoginViewController.swift in Sources */,
 				4B7E6C47227592A2002C23B3 /* BTGameViewController.swift in Sources */,
+				4BB8A0BA2296E096004D6ABB /* BTApiManager.swift in Sources */,
 				4B7E6C45227592A2002C23B3 /* AppDelegate.swift in Sources */,
 				4B7E6C4D227592A2002C23B3 /* The_Banana_Tap_Challenge.xcdatamodeld in Sources */,
 			);
