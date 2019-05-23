@@ -1,0 +1,51 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+
+    <changeSet author="klkornacki" id="2019-04-29-1425-1">
+        <createTable tableName="device">
+            <column name="id" type="UUID">
+                <constraints primaryKey="true" primaryKeyName="device_pkey"/>
+            </column>
+            <column name="token" type="UUID">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="status" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <createTable tableName="sample">
+            <column name="id" type="UUID">
+                <constraints primaryKey="true" primaryKeyName="sample_pkey"/>
+            </column>
+            <column name="fk_device_id" type="UUID">
+                <constraints nullable="false"/>
+            </column>
+            <column name="occured_on" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="finished_on" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="count" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="score" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="klkornacki" id="2019-05-14-addUniqueConstraint">
+        <addUniqueConstraint columnNames="name"
+                             constraintName="unique_device_name"
+                             tableName="device"/>
+    </changeSet>
+
+</databaseChangeLog>
