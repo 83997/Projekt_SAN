@@ -1,24 +1,79 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Game View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="BTGameViewController" customModule="The_Banana_Tap_Challenge" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bwb-Tg-D3H">
+                                <rect key="frame" x="344" y="44" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" red="0.055871392470000003" green="0.64643480330000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" image="menuIcon"/>
+                                <connections>
+                                    <action selector="statsButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Rja-Sp-s5y"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tKW-Te-5BZ">
+                                <rect key="frame" x="40" y="367" width="334" height="162"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="tKW-Te-5BZ" secondAttribute="height" multiplier="167:81" id="GrZ-NU-Vqe"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="bananaImage"/>
+                                <connections>
+                                    <action selector="bananaTapEnded:" destination="BYZ-38-t0r" eventType="touchUpInside" id="23A-r6-pfI"/>
+                                    <action selector="bananaTapStarted:" destination="BYZ-38-t0r" eventType="touchDown" id="WMP-xE-Eqv"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FfU-RY-I49">
+                                <rect key="frame" x="157" y="267" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="30e-AU-sqn"/>
+                                    <constraint firstAttribute="height" constant="100" id="yrq-kC-Ppm"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Farah" family="Farah" pointSize="100"/>
+                                <color key="textColor" red="0.64643480330000003" green="0.0" blue="0.018150642929999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.13412350171232876" green="0.60669948630136983" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="tKW-Te-5BZ" secondAttribute="trailing" constant="40" id="7g7-gO-9gY"/>
+                            <constraint firstItem="tKW-Te-5BZ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="40" id="boP-ut-pLd"/>
+                            <constraint firstItem="tKW-Te-5BZ" firstAttribute="top" secondItem="FfU-RY-I49" secondAttribute="bottom" id="cDv-q0-IDR"/>
+                            <constraint firstItem="tKW-Te-5BZ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="e2f-3f-tBX"/>
+                            <constraint firstItem="FfU-RY-I49" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="yGn-2Q-zcA"/>
+                            <constraint firstItem="tKW-Te-5BZ" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="zu1-WK-p7I"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="bananaButton" destination="tKW-Te-5BZ" id="Bni-tU-y1Z"/>
+                        <outlet property="pointLabel" destination="FfU-RY-I49" id="VPV-Gd-7YI"/>
+                        <outlet property="statsButton" destination="bwb-Tg-D3H" id="5T0-1P-YWM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="124.6376811594203" y="138.61607142857142"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="bananaImage" width="480" height="241"/>
+        <image name="menuIcon" width="256" height="256"/>
+    </resources>
 </document>
