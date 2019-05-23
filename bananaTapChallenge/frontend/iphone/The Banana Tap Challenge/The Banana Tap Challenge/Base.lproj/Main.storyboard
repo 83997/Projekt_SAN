@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_1" orientation="portrait">
+    <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,7 +15,7 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="BTGameViewController" customModule="The_Banana_Tap_Challenge" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bwb-Tg-D3H">
@@ -29,7 +29,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tKW-Te-5BZ">
-                                <rect key="frame" x="40" y="367" width="334" height="162"/>
+                                <rect key="frame" x="40" y="262" width="295" height="143"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="tKW-Te-5BZ" secondAttribute="height" multiplier="167:81" id="GrZ-NU-Vqe"/>
                                 </constraints>
@@ -40,7 +40,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FfU-RY-I49">
-                                <rect key="frame" x="157" y="267" width="100" height="100"/>
+                                <rect key="frame" x="137.5" y="162" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="30e-AU-sqn"/>
                                     <constraint firstAttribute="height" constant="100" id="yrq-kC-Ppm"/>
@@ -65,11 +65,107 @@
                         <outlet property="bananaButton" destination="tKW-Te-5BZ" id="Bni-tU-y1Z"/>
                         <outlet property="pointLabel" destination="FfU-RY-I49" id="VPV-Gd-7YI"/>
                         <outlet property="statsButton" destination="bwb-Tg-D3H" id="5T0-1P-YWM"/>
+                        <segue destination="ngP-Br-OGS" kind="presentation" identifier="showLoginScreen" id="ioh-Xd-lq1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="124.6376811594203" y="138.61607142857142"/>
+        </scene>
+        <!--Login View Controller-->
+        <scene sceneID="K8S-Lz-q2v">
+            <objects>
+                <viewController id="ngP-Br-OGS" customClass="BTLoginViewController" customModule="The_Banana_Tap_Challenge" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="q7E-Nf-7SZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wDC-49-8z9" customClass="TPKeyboardAvoidingScrollView">
+                                <rect key="frame" x="0.0" y="103.5" width="375" height="563.5"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5lr-qJ-600">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="563.5"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IUb-2a-4Zd">
+                                                <rect key="frame" x="137.5" y="494.5" width="100" height="49"/>
+                                                <color key="backgroundColor" red="0.48285034230000001" green="0.80129679570000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="nAl-Ck-nvk"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="35"/>
+                                                <inset key="contentEdgeInsets" minX="10" minY="5" maxX="10" maxY="5"/>
+                                                <state key="normal" title="Dalej">
+                                                    <color key="titleColor" red="0.64643480330000003" green="0.0" blue="0.018150642929999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                            </button>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nazwa" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YlS-zy-sVJ">
+                                                <rect key="frame" x="30" y="414.5" width="315" height="60"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="60" id="G26-Sg-oPG"/>
+                                                </constraints>
+                                                <color key="textColor" red="0.64643480330000003" green="0.0" blue="0.018150642929999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="30"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="done" textContentType="name"/>
+                                            </textField>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Podana nazwa jest zajęta!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sQd-P9-dbb">
+                                                <rect key="frame" x="62.5" y="369.5" width="250" height="25"/>
+                                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="23"/>
+                                                <color key="textColor" red="0.64643480330000003" green="0.0" blue="0.018150642929999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="IUb-2a-4Zd" firstAttribute="centerX" secondItem="5lr-qJ-600" secondAttribute="centerX" id="69M-qX-Hkg"/>
+                                            <constraint firstItem="sQd-P9-dbb" firstAttribute="centerX" secondItem="5lr-qJ-600" secondAttribute="centerX" id="6oq-oG-SBQ"/>
+                                            <constraint firstAttribute="bottom" secondItem="IUb-2a-4Zd" secondAttribute="bottom" constant="20" id="Hk2-l1-qeQ"/>
+                                            <constraint firstItem="YlS-zy-sVJ" firstAttribute="leading" secondItem="5lr-qJ-600" secondAttribute="leading" constant="30" id="IME-Pv-deb"/>
+                                            <constraint firstItem="YlS-zy-sVJ" firstAttribute="centerX" secondItem="5lr-qJ-600" secondAttribute="centerX" id="JmJ-18-qbP"/>
+                                            <constraint firstAttribute="trailing" secondItem="YlS-zy-sVJ" secondAttribute="trailing" constant="30" id="hIW-uW-EiO"/>
+                                            <constraint firstItem="IUb-2a-4Zd" firstAttribute="top" secondItem="YlS-zy-sVJ" secondAttribute="bottom" constant="20" id="lm8-x8-eXa"/>
+                                            <constraint firstItem="YlS-zy-sVJ" firstAttribute="top" secondItem="sQd-P9-dbb" secondAttribute="bottom" constant="20" id="wOO-8a-cIf"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="5lr-qJ-600" secondAttribute="trailing" id="YR2-sT-rO4"/>
+                                    <constraint firstItem="5lr-qJ-600" firstAttribute="centerX" secondItem="wDC-49-8z9" secondAttribute="centerX" id="glO-VU-Ari"/>
+                                    <constraint firstItem="5lr-qJ-600" firstAttribute="leading" secondItem="wDC-49-8z9" secondAttribute="leading" id="uVA-6Y-GdD"/>
+                                    <constraint firstItem="5lr-qJ-600" firstAttribute="centerY" secondItem="wDC-49-8z9" secondAttribute="centerY" id="vPK-xV-TES"/>
+                                    <constraint firstItem="5lr-qJ-600" firstAttribute="top" secondItem="wDC-49-8z9" secondAttribute="top" id="wa0-1z-0MN"/>
+                                    <constraint firstAttribute="bottom" secondItem="5lr-qJ-600" secondAttribute="bottom" id="znJ-9q-IEi"/>
+                                </constraints>
+                            </scrollView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Podaj swoją nazwę" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cQq-Wj-Kp7">
+                                <rect key="frame" x="20" y="40" width="335" height="43.5"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="40"/>
+                                <color key="textColor" red="0.64643480330000003" green="0.0" blue="0.018150642929999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.13412350170000001" green="0.60669948630000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="CmW-0W-1sF" firstAttribute="trailing" secondItem="wDC-49-8z9" secondAttribute="trailing" id="2o2-eQ-pv1"/>
+                            <constraint firstItem="CmW-0W-1sF" firstAttribute="bottom" secondItem="wDC-49-8z9" secondAttribute="bottom" id="9Iu-QT-ckq"/>
+                            <constraint firstItem="cQq-Wj-Kp7" firstAttribute="top" secondItem="CmW-0W-1sF" secondAttribute="top" constant="20" id="QnE-Ps-Ncq"/>
+                            <constraint firstItem="CmW-0W-1sF" firstAttribute="trailing" secondItem="cQq-Wj-Kp7" secondAttribute="trailing" constant="20" id="Swb-8o-VYR"/>
+                            <constraint firstItem="wDC-49-8z9" firstAttribute="leading" secondItem="CmW-0W-1sF" secondAttribute="leading" id="aCq-md-a95"/>
+                            <constraint firstItem="wDC-49-8z9" firstAttribute="top" secondItem="cQq-Wj-Kp7" secondAttribute="bottom" constant="20" id="t7n-90-G1j"/>
+                            <constraint firstItem="cQq-Wj-Kp7" firstAttribute="leading" secondItem="CmW-0W-1sF" secondAttribute="leading" constant="20" id="zov-UK-Gmm"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="CmW-0W-1sF"/>
+                    </view>
+                    <connections>
+                        <outlet property="contentScrollView" destination="wDC-49-8z9" id="Zwd-AE-GQI"/>
+                        <outlet property="nameTextField" destination="YlS-zy-sVJ" id="I2n-l5-0zD"/>
+                        <outlet property="nextButton" destination="IUb-2a-4Zd" id="G2X-qx-CNK"/>
+                        <outlet property="titleLabel" destination="cQq-Wj-Kp7" id="gsd-hF-rH4"/>
+                        <outlet property="usedNameMessageLabel" destination="sQd-P9-dbb" id="ZwC-lr-wko"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7Dy-nK-8gH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1336.8" y="138.0809595202399"/>
         </scene>
     </scenes>
     <resources>

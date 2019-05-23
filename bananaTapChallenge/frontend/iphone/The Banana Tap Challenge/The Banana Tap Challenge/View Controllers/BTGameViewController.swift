@@ -61,6 +61,8 @@ class BTGameViewController: UIViewController
         
         self.pointsFrame = self.pointLabel.frame
         self.bananaFrame = self.bananaButton.frame
+        
+        self.performSegue(withIdentifier: "showLoginScreen", sender: nil)
     }
     
     private func addPoint()
