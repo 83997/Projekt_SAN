@@ -25,9 +25,23 @@ class BTApiManager: NSObject
         // TODO: Send token request
     }
     
-    public func getStats()
+    public func getStats() -> [BTUserStatsModel]
     {
         // TODO: Send stats request
+        
+        var array = [BTUserStatsModel]()
+        
+        for i in 1...5
+        {
+            let statsDummy = BTUserStatsModel.init()
+            
+            statsDummy.name = "User" + i.toString()
+            statsDummy.totalScore = 200 * i
+            
+            array.append(statsDummy)
+        }
+        
+        return array
     }
     
     public func sendSamples(force : Bool)
