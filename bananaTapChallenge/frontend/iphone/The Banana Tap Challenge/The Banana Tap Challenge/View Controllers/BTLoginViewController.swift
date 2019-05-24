@@ -19,7 +19,7 @@ class BTLoginViewController: UIViewController, UITextFieldDelegate
     
     @IBAction func nextButtonTapped(_ sender: UIButton)
     {
-        BTUserManager.sharedManager.setUserLoginStatus(status: .LoginStatusSuccessful)
+        BTApiManager.sharedManager.registerUser()
         
         self.dismiss(animated: true, completion: nil)
     }

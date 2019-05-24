@@ -8,5 +8,6 @@ target 'The Banana Tap Challenge' do
 	pod 'Alamofire'
     pod 'TPKeyboardAvoiding'
     pod 'JSONModel'
+    pod 'SwiftKeychainWrapper'
 end
 

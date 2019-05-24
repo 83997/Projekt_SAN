@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4B056C98229850DE00E0B9D2 /* BTKeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B056C97229850DE00E0B9D2 /* BTKeychainManager.swift */; };
 		4B751BD7229829EE003705BB /* BTExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B751BD6229829EE003705BB /* BTExtentions.swift */; };
 		4B751BDA22982E63003705BB /* BTUserStatsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B751BD922982E63003705BB /* BTUserStatsModel.swift */; };
 		4B751BDC22982F23003705BB /* BTUserSampleResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B751BDB22982F23003705BB /* BTUserSampleResultModel.swift */; };
@@ -29,6 +30,7 @@
 
 /* Begin PBXFileReference section */
 		1DC9B55CB6BAA2B17F6C7BD7 /* Pods-The Banana Tap Challenge.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-The Banana Tap Challenge.debug.xcconfig"; path = "Pods/Target Support Files/Pods-The Banana Tap Challenge/Pods-The Banana Tap Challenge.debug.xcconfig"; sourceTree = "<group>"; };
+		4B056C97229850DE00E0B9D2 /* BTKeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTKeychainManager.swift; sourceTree = "<group>"; };
 		4B751BD6229829EE003705BB /* BTExtentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTExtentions.swift; sourceTree = "<group>"; };
 		4B751BD922982E63003705BB /* BTUserStatsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTUserStatsModel.swift; sourceTree = "<group>"; };
 		4B751BDB22982F23003705BB /* BTUserSampleResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTUserSampleResultModel.swift; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 			children = (
 				4BB8A0B92296E096004D6ABB /* BTApiManager.swift */,
 				4B9EA240229811B0006208EF /* BTUserManager.swift */,
+				4B056C97229850DE00E0B9D2 /* BTKeychainManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -251,12 +254,14 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-The Banana Tap Challenge/Pods-The Banana Tap Challenge-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/JSONModel/JSONModel.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftKeychainWrapper/SwiftKeychainWrapper.framework",
 				"${BUILT_PRODUCTS_DIR}/TPKeyboardAvoiding/TPKeyboardAvoiding.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSONModel.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftKeychainWrapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TPKeyboardAvoiding.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -290,6 +295,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4BB8A0B62296D136004D6ABB /* BTLoginViewController.swift in Sources */,
+				4B056C98229850DE00E0B9D2 /* BTKeychainManager.swift in Sources */,
 				4B7E6C47227592A2002C23B3 /* BTGameViewController.swift in Sources */,
 				4B751BD7229829EE003705BB /* BTExtentions.swift in Sources */,
 				4B751BDC22982F23003705BB /* BTUserSampleResultModel.swift in Sources */,
@@ -452,10 +458,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M3X3752CBJ;
 				INFOPLIST_FILE = "The Banana Tap Challenge/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "SGMobile.The-Banana-Tap-Challenge";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -473,10 +476,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M3X3752CBJ;
 				INFOPLIST_FILE = "The Banana Tap Challenge/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "SGMobile.The-Banana-Tap-Challenge";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

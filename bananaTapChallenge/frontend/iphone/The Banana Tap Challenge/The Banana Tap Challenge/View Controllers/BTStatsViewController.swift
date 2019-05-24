@@ -17,6 +17,7 @@ class BTStatsViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var backButton: UIButton!
     
     var stats : [BTUserStatsModel]?
+    var activityIndicator : UIActivityIndicatorView?
     
     @IBAction func backButtonTapped(_ sender: Any)
     {
@@ -37,7 +38,8 @@ class BTStatsViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         self.tableView.backgroundColor = .clear
         
-        self.stats = BTApiManager.sharedManager.getStats()
+        self.activityIndicator = UIActivityIndicatorView.init(frame: self.view.bounds)
+        self.view.addSubview(self.activityIndicator!)
         
         self.setUpScore()
     }
@@ -46,7 +48,14 @@ class BTStatsViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return 5
+        if let stats = self.stats
+        {
+            return stats.count
+        }
+        else
+        {
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
@@ -71,6 +80,14 @@ class BTStatsViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     private func setUpScore()
     {
+        self.activityIndicator?.startAnimating()
+        
+        self.stats = BTApiManager.sharedManager.getStats()
+
         self.scoreLabel.text = BTUserManager.sharedManager.getUserPoints().toString()
+        
+        self.tableView.reloadData()
+        
+        self.activityIndicator?.stopAnimating()
     }
 }

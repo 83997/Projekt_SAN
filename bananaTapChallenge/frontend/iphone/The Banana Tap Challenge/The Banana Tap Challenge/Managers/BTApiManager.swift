@@ -17,12 +17,24 @@ class BTApiManager: NSObject
 
     private override init()
     {
+        super.init()
+        
         lastSend = Date()
     }
     
     public func registerUser()
     {
         // TODO: Send token request
+        
+        let token = BTUserRegisterResultModel.init()
+        token.token = "token"
+        
+        let didSaveToken = BTKeychainManager.sharedManager.saveToken(token: token.token)
+        
+        if (didSaveToken)
+        {
+            BTUserManager.sharedManager.setUserLoginStatus(status: .LoginStatusSuccessful)
+        }
     }
     
     public func getStats() -> [BTUserStatsModel]
