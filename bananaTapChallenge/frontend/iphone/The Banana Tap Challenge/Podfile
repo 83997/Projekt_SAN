@@ -7,5 +7,6 @@ target 'The Banana Tap Challenge' do
   # Pods for Calometer
 	pod 'Alamofire'
     pod 'TPKeyboardAvoiding'
+    pod 'JSONModel'
 end
 

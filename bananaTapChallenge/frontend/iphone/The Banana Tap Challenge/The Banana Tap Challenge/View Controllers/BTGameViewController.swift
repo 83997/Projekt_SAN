@@ -75,6 +75,8 @@ class BTGameViewController: UIViewController
         self.pointLabel.text = String(self.points)
         
         self.animatePoints()
+        
+        BTUserManager.sharedManager.addPoint()
     }
     
     private func animatePoints()
