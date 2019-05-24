@@ -12,14 +12,15 @@ class BTUserManager: NSObject
 {
     private var userToken : String?
     private var userName : String?
-    private var userPoints : String?
+    private var userPoints : Int64 = 0
     private var loginStatus : BTLoginStatus = .LoginStatusNotLoggedIn
+    private var lastTap : Date?
     
     static let sharedManager = BTUserManager()
     
     private override init()
     {
-        self.userPoints = "0";
+        
     }
     
     public func setUserLoginStatus(status : BTLoginStatus)
@@ -32,9 +33,21 @@ class BTUserManager: NSObject
         self.userName = name
     }
     
-    public func setUserPoints(points : String)
+    public func addPoint()
     {
-        self.userPoints = points
+        self.userPoints += 1
+        
+        if let lastTap = self.lastTap
+        {
+            let elapsed = Date().timeIntervalSince(lastTap)
+            let seconds = elapsed.secondsFromTimeInterval()
+            
+            let force = seconds > 0
+            
+            BTApiManager.sharedManager.sendSamples(force: force)
+        }
+        
+        self.lastTap = Date()
     }
     
     public func getUserLoginStatus() -> BTLoginStatus
@@ -47,13 +60,13 @@ class BTUserManager: NSObject
         return self.userName
     }
     
-    public func getUserPoints() -> String
+    public func getUserPoints() -> Int64
     {
-        return self.userPoints!
+        return self.userPoints
     }
     
     public func resetUserPoints()
     {
-        self.userPoints = "0"
+        self.userPoints = 0
     }
 }
