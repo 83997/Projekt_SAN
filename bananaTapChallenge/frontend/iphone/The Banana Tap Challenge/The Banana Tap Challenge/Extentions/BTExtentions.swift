@@ -29,3 +29,19 @@ extension TimeInterval
         return time
     }
 }
+
+extension Int
+{
+    func toString() -> String
+    {
+        return String(self);
+    }
+}
+
+extension Int64
+{
+    func toString() -> String
+    {
+        return String(self);
+    }
+}

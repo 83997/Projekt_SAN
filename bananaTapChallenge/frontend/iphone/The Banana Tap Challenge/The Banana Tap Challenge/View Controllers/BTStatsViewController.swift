@@ -16,7 +16,7 @@ class BTStatsViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var backButton: UIButton!
     
-    var users = 1;
+    var stats : [BTUserStatsModel]?
     
     @IBAction func backButtonTapped(_ sender: Any)
     {
@@ -36,6 +36,10 @@ class BTStatsViewController: UIViewController, UITableViewDelegate, UITableViewD
         self.tableView.separatorStyle = .none
         
         self.tableView.backgroundColor = .clear
+        
+        self.stats = BTApiManager.sharedManager.getStats()
+        
+        self.setUpScore()
     }
     
     // MARK: - UITableView methods
@@ -51,9 +55,9 @@ class BTStatsViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         if (cell != nil)
         {
-            cell!.numberLabel.text = String(self.users)
-            cell!.nameLabel.text = "User"
-            cell!.pointsLabel.text = String(100 * self.users)
+            cell!.numberLabel.text = (indexPath.row + 1).toString()
+            cell!.nameLabel.text = self.stats![indexPath.row].name
+            cell!.pointsLabel.text = self.stats![indexPath.row].totalScore?.toString()
         }
         else
         {
@@ -61,5 +65,12 @@ class BTStatsViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
         
         return cell!
+    }
+    
+    // MARK: - Private methods
+    
+    private func setUpScore()
+    {
+        self.scoreLabel.text = BTUserManager.sharedManager.getUserPoints().toString()
     }
 }
