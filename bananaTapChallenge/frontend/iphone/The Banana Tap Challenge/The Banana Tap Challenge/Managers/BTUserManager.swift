@@ -20,7 +20,7 @@ class BTUserManager: NSObject
     
     private override init()
     {
-
+        
     }
     
     public func setUserLoginStatus(status : BTLoginStatus)

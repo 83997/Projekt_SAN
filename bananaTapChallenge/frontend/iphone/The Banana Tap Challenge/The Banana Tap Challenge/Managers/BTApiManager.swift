@@ -56,4 +56,9 @@ class BTApiManager: NSObject
             self.lastSend = Date()
         }
     }
+    
+    class func getStats()
+    {
+        
+    }
 }
