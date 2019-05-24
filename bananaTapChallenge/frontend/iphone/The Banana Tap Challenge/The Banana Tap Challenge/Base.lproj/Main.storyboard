@@ -15,7 +15,7 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="BTGameViewController" customModule="The_Banana_Tap_Challenge" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bwb-Tg-D3H">
@@ -66,11 +66,89 @@
                         <outlet property="pointLabel" destination="FfU-RY-I49" id="VPV-Gd-7YI"/>
                         <outlet property="statsButton" destination="bwb-Tg-D3H" id="5T0-1P-YWM"/>
                         <segue destination="ngP-Br-OGS" kind="presentation" identifier="showLoginScreen" id="ioh-Xd-lq1"/>
+                        <segue destination="oYK-Ux-bvp" kind="presentation" identifier="showStatsScreen" id="Tl6-Ga-9Ox"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="124.6376811594203" y="138.61607142857142"/>
+        </scene>
+        <!--Stats View Controller-->
+        <scene sceneID="EPU-KM-CsH">
+            <objects>
+                <viewController id="oYK-Ux-bvp" customClass="BTStatsViewController" customModule="The_Banana_Tap_Challenge" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xwg-dU-ysH">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Statystyki" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ND-Uh-xa2">
+                                <rect key="frame" x="97" y="40" width="181.5" height="43.5"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="40"/>
+                                <color key="textColor" red="0.64643480330000003" green="0.0" blue="0.018150642929999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zNh-o3-bzn">
+                                <rect key="frame" x="20" y="103.5" width="335" height="409.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Twój wynik:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g09-SN-3hh">
+                                <rect key="frame" x="20" y="533" width="162.5" height="25"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="23"/>
+                                <color key="textColor" red="0.64643480330000003" green="0.0" blue="0.018150642929999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H6G-Kz-kko">
+                                <rect key="frame" x="192.5" y="533" width="162.5" height="25"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="23"/>
+                                <color key="textColor" red="0.4157644510269165" green="0.97563451528549194" blue="0.016751427203416824" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QoL-Gq-ral">
+                                <rect key="frame" x="127" y="598" width="121" height="49"/>
+                                <color key="backgroundColor" red="0.48285034230000001" green="0.80129679570000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="05j-TA-BNN"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="35"/>
+                                <inset key="contentEdgeInsets" minX="10" minY="5" maxX="10" maxY="5"/>
+                                <state key="normal" title="Powrót">
+                                    <color key="titleColor" red="0.64643480330000003" green="0.0" blue="0.018150642929999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="backButtonTapped:" destination="oYK-Ux-bvp" eventType="touchUpInside" id="jQV-ys-30o"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.13333333333333333" green="0.60784313725490191" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="H6G-Kz-kko" firstAttribute="width" secondItem="g09-SN-3hh" secondAttribute="width" id="9gB-xG-r9w"/>
+                            <constraint firstItem="dYF-CU-eTC" firstAttribute="bottom" secondItem="QoL-Gq-ral" secondAttribute="bottom" constant="20" id="AAJ-bM-3Uz"/>
+                            <constraint firstItem="2ND-Uh-xa2" firstAttribute="centerX" secondItem="xwg-dU-ysH" secondAttribute="centerX" id="DZS-hW-UZE"/>
+                            <constraint firstItem="zNh-o3-bzn" firstAttribute="leading" secondItem="dYF-CU-eTC" secondAttribute="leading" constant="20" id="Daz-Pf-vva"/>
+                            <constraint firstItem="dYF-CU-eTC" firstAttribute="trailing" secondItem="zNh-o3-bzn" secondAttribute="trailing" constant="20" id="Dc9-Dn-I0h"/>
+                            <constraint firstItem="H6G-Kz-kko" firstAttribute="centerY" secondItem="g09-SN-3hh" secondAttribute="centerY" id="EuA-ws-f80"/>
+                            <constraint firstItem="g09-SN-3hh" firstAttribute="leading" secondItem="dYF-CU-eTC" secondAttribute="leading" constant="20" id="GNA-JK-7OX"/>
+                            <constraint firstItem="QoL-Gq-ral" firstAttribute="top" secondItem="g09-SN-3hh" secondAttribute="bottom" constant="40" id="K6o-ma-CmV"/>
+                            <constraint firstItem="zNh-o3-bzn" firstAttribute="top" secondItem="2ND-Uh-xa2" secondAttribute="bottom" constant="20" id="Z8j-Hy-68x"/>
+                            <constraint firstItem="2ND-Uh-xa2" firstAttribute="top" secondItem="dYF-CU-eTC" secondAttribute="top" constant="20" id="bNU-lo-KH2"/>
+                            <constraint firstItem="g09-SN-3hh" firstAttribute="top" secondItem="zNh-o3-bzn" secondAttribute="bottom" constant="20" id="fQY-kt-iKf"/>
+                            <constraint firstItem="H6G-Kz-kko" firstAttribute="leading" secondItem="g09-SN-3hh" secondAttribute="trailing" constant="10" id="gZk-T8-gJJ"/>
+                            <constraint firstItem="QoL-Gq-ral" firstAttribute="centerX" secondItem="xwg-dU-ysH" secondAttribute="centerX" id="iIS-Wt-xHM"/>
+                            <constraint firstItem="dYF-CU-eTC" firstAttribute="trailing" secondItem="H6G-Kz-kko" secondAttribute="trailing" constant="20" id="kQt-W0-3vC"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="dYF-CU-eTC"/>
+                    </view>
+                    <connections>
+                        <outlet property="backButton" destination="QoL-Gq-ral" id="Cxm-yu-Yzq"/>
+                        <outlet property="scoreLabel" destination="H6G-Kz-kko" id="Dr2-wl-XGm"/>
+                        <outlet property="scoreTitleLabel" destination="g09-SN-3hh" id="VJa-yr-Ufb"/>
+                        <outlet property="tableView" destination="zNh-o3-bzn" id="SWk-AO-syP"/>
+                        <outlet property="titleLabel" destination="2ND-Uh-xa2" id="4rL-p7-tyy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Tlf-1g-3Gt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="124" y="1018"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="K8S-Lz-q2v">
@@ -97,6 +175,9 @@
                                                 <state key="normal" title="Dalej">
                                                     <color key="titleColor" red="0.64643480330000003" green="0.0" blue="0.018150642929999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="nextButtonTapped:" destination="ngP-Br-OGS" eventType="touchUpInside" id="Noo-14-R8G"/>
+                                                </connections>
                                             </button>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nazwa" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YlS-zy-sVJ">
                                                 <rect key="frame" x="30" y="414.5" width="315" height="60"/>

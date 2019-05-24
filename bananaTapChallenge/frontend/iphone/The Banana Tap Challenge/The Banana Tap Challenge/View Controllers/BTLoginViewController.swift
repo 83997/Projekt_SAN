@@ -17,6 +17,13 @@ class BTLoginViewController: UIViewController, UITextFieldDelegate
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var contentScrollView: TPKeyboardAvoidingScrollView!
     
+    @IBAction func nextButtonTapped(_ sender: UIButton)
+    {
+        BTUserManager.sharedManager.setUserLoginStatus(status: .LoginStatusSuccessful)
+        
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()

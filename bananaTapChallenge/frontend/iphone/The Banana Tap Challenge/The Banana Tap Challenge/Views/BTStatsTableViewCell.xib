@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="BTStatsTableViewCell" customModule="The_Banana_Tap_Challenge" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ajQ-zK-SyR">
+                        <rect key="frame" x="20" y="11" width="13.5" height="22"/>
+                        <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="20"/>
+                        <color key="textColor" red="0.4157644510269165" green="0.97563451528549194" blue="0.016751427203416824" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Player" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="daw-75-aeg">
+                        <rect key="frame" x="53.5" y="11" width="192" height="22"/>
+                        <constraints>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="47" id="Dze-Vl-RMt"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="20"/>
+                        <color key="textColor" red="0.4157644510269165" green="0.97563451528549194" blue="0.016751427203416824" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dwB-e1-grL">
+                        <rect key="frame" x="265.5" y="11" width="34.5" height="22"/>
+                        <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="20"/>
+                        <color key="textColor" red="0.4157644510269165" green="0.97563451528549194" blue="0.016751427203416824" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" red="0.1333333333" green="0.60784313729999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <constraints>
+                    <constraint firstItem="daw-75-aeg" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="KsW-BL-RN5"/>
+                    <constraint firstItem="daw-75-aeg" firstAttribute="leading" secondItem="ajQ-zK-SyR" secondAttribute="trailing" constant="20" id="SJW-0y-RiG"/>
+                    <constraint firstAttribute="trailing" secondItem="dwB-e1-grL" secondAttribute="trailing" constant="20" id="blf-H1-XgX"/>
+                    <constraint firstItem="ajQ-zK-SyR" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="cMP-D3-Zpf"/>
+                    <constraint firstItem="dwB-e1-grL" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="hwu-db-TZa"/>
+                    <constraint firstItem="ajQ-zK-SyR" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="iRD-gS-Vfv"/>
+                    <constraint firstItem="dwB-e1-grL" firstAttribute="leading" secondItem="daw-75-aeg" secondAttribute="trailing" constant="20" id="jww-mo-U7i"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="nameLabel" destination="daw-75-aeg" id="OcC-Hb-8Gk"/>
+                <outlet property="numberLabel" destination="ajQ-zK-SyR" id="rA5-jU-S0d"/>
+                <outlet property="pointsLabel" destination="dwB-e1-grL" id="dYn-eR-rIf"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+</document>
