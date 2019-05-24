@@ -45,7 +45,7 @@ class BTGameViewController: UIViewController
     
     @IBAction func statsButtonTapped(_ sender: UIButton)
     {
-
+        self.performSegue(withIdentifier: "showStatsScreen", sender: nil)
     }
     
     override func viewDidLoad()
@@ -62,7 +62,10 @@ class BTGameViewController: UIViewController
         self.pointsFrame = self.pointLabel.frame
         self.bananaFrame = self.bananaButton.frame
         
-        self.performSegue(withIdentifier: "showLoginScreen", sender: nil)
+        if (BTUserManager.sharedManager.getUserLoginStatus() != .LoginStatusSuccessful)
+        {
+            self.performSegue(withIdentifier: "showLoginScreen", sender: nil)
+        }
     }
     
     private func addPoint()

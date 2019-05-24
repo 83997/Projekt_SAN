@@ -11,8 +11,13 @@ import Alamofire
 
 class BTApiManager: NSObject
 {
-    class func registerUser
+    class func registerUser()
     {
        
+    }
+    
+    class func getStats()
+    {
+        
     }
 }
