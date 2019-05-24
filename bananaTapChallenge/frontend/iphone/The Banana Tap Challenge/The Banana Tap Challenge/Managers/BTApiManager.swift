@@ -11,13 +11,49 @@ import Alamofire
 
 class BTApiManager: NSObject
 {
-    class func registerUser()
+    static let sharedManager = BTApiManager()
+    
+    private var lastSend : Date?
+
+    private override init()
     {
-       
+        lastSend = Date()
     }
     
-    class func getStats()
+    public func registerUser()
     {
-        
+        // TODO: Send token request
+    }
+    
+    public func getStats()
+    {
+        // TODO: Send stats request
+    }
+    
+    public func sendSamples(force : Bool)
+    {
+        if force == false
+        {
+            let elapsed = Date().timeIntervalSince(self.lastSend!)
+            
+            NSLog(String(elapsed.secondsFromTimeInterval()), "")
+            
+            if elapsed > 30
+            {
+                NSLog("Sending Sample!", "")
+                
+                // TODO: Send sample request
+                
+                self.lastSend = Date()
+            }
+        }
+        else
+        {
+            NSLog("Sending forced Sample!", "")
+
+            // TODO: Send sample request
+            
+            self.lastSend = Date()
+        }
     }
 }
