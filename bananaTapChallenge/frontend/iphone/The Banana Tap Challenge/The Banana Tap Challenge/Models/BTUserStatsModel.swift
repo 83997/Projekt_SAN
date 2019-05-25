@@ -7,10 +7,17 @@
 //
 
 import UIKit
-import JSONModel
 
-class BTUserStatsModel: JSONModel
+class BTUserStatsModel: NSObject
 {
     var name : String?
     var totalScore : Int?
+    
+    private override init() {}
+    
+    init(json : [String : Any?])
+    {
+        self.name = json["name"] as? String
+        self.totalScore = json["totalScore"] as? Int
+    }
 }
