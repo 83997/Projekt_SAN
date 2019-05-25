@@ -7,9 +7,21 @@
 //
 
 import UIKit
-import JSONModel
 
-class BTUserSampleResultModel: JSONModel
+class BTUserSampleResultModel: NSObject
 {
-    var totalScore : Int?
+    var token : String?
+    var ocurredOn : String?
+    var finishedOn : String?
+    var count : Int?
+
+    private override init() {}
+    
+    init(json : [String : Any?])
+    {
+        self.token = json["token"] as? String
+        self.ocurredOn = json["ocurredOn"] as? String
+        self.finishedOn = json["finishedOn"] as? String
+        self.count = json["count"] as? Int
+    }
 }

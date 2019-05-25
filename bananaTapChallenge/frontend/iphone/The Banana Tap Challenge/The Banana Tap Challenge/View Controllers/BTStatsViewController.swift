@@ -83,12 +83,12 @@ class BTStatsViewController: UIViewController, UITableViewDelegate, UITableViewD
     {
         self.activityIndicator?.startAnimating()
         
-        self.stats = BTApiManager.sharedManager.getStats()
+        BTApiManager.sharedManager.getStats(handler: { (stats) in
+            self.stats = stats
+            self.tableView.reloadData()
+            self.activityIndicator?.stopAnimating()
+        })
 
         self.scoreLabel.text = BTUserManager.sharedManager.getUserPoints().toString()
-        
-        self.tableView.reloadData()
-        
-        self.activityIndicator?.stopAnimating()
     }
 }

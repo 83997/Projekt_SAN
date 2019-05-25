@@ -19,6 +19,8 @@ class BTGameViewController: UIViewController
     var pointsFrame : CGRect = CGRect.zero
     var points : Int = 0
 
+    var activityIndicator : UIActivityIndicatorView?
+
     @IBAction func bananaTapStarted(_ sender: UIButton)
     {
         UIView.animate(withDuration: 0.05, delay: 0.0, options: .curveLinear, animations: {
@@ -56,6 +58,9 @@ class BTGameViewController: UIViewController
         self.pointLabel.isHidden = true
         
         self.centerView.backgroundColor = .clear
+        
+        self.activityIndicator = UIActivityIndicatorView.init(frame: self.view.bounds)
+        self.view.addSubview(self.activityIndicator!)
     }
     
     override func viewDidAppear(_ animated: Bool)
@@ -65,9 +70,20 @@ class BTGameViewController: UIViewController
         self.pointsFrame = self.pointLabel.frame
         self.bananaFrame = self.bananaButton.frame
         
-        if (BTUserManager.sharedManager.getUserLoginStatus() != .LoginStatusSuccessful)
-        {
-            self.performSegue(withIdentifier: "showLoginScreen", sender: nil)
+        self.activityIndicator?.startAnimating()
+
+        BTApiManager.sharedManager.isAlive { (isAlive) in
+            if (BTUserManager.sharedManager.getUserLoginStatus() != .LoginStatusSuccessful)
+            {
+                self.performSegue(withIdentifier: "showLoginScreen", sender: nil)
+            }
+            else
+            {
+                BTAlert.showErrorMessage(message: "Brak połączenia!", sourceViewController: self)
+
+                self.bananaButton.isUserInteractionEnabled = false
+                self.statsButton.isEnabled = false
+            }
         }
     }
     

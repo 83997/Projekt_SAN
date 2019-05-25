@@ -21,6 +21,15 @@ class BTUserManager: NSObject
     private override init()
     {
         super.init()
+        
+        if BTKeychainManager.sharedManager.getToken().count > 0
+        {
+            self.loginStatus = .LoginStatusSuccessful
+        }
+        else
+        {
+            self.loginStatus = .LoginStatusNotLoggedIn
+        }
     }
     
     public func setUserLoginStatus(status : BTLoginStatus)

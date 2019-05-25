@@ -30,9 +30,16 @@ class BTKeychainManager: NSObject
         }
     }
     
-    public func getToken() -> String?
+    public func getToken() -> String
     {
-        return KeychainWrapper.standard.string(forKey: "token")
+        if let token = KeychainWrapper.standard.string(forKey: "token")
+        {
+            return token
+        }
+        else
+        {
+            return ""
+        }
     }
 }
 

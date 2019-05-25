@@ -17,11 +17,40 @@ class BTLoginViewController: UIViewController, UITextFieldDelegate
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var contentScrollView: TPKeyboardAvoidingScrollView!
     
+    var activityIndicator : UIActivityIndicatorView?
+
     @IBAction func nextButtonTapped(_ sender: UIButton)
     {
-        BTApiManager.sharedManager.registerUser()
+        if (self.nameTextField!.text == "")
+        {
+            BTAlert.showErrorMessage(message: "Wprowadź nazwę!", sourceViewController: self)
+            
+            return
+        }
         
-        self.dismiss(animated: true, completion: nil)
+        self.activityIndicator?.startAnimating()
+
+        BTApiManager.sharedManager.isAlive { (isAlive) in
+            self.activityIndicator?.stopAnimating()
+            
+            if isAlive
+            {
+                BTApiManager.sharedManager.registerUser(name: self.nameTextField!.text!) { (isRegistered) in
+                    if isRegistered == true
+                    {
+                        self.dismiss(animated: true, completion: nil)
+                    }
+                    else
+                    {
+                        BTAlert.showErrorMessage(message: "Nie można zarejestrować użytkownika!", sourceViewController: self)
+                    }
+                }
+            }
+            else
+            {
+                BTAlert.showErrorMessage(message: "Błąd połączenia z serwerem!", sourceViewController: self)
+            }
+        }
     }
     
     override func viewDidLoad()
@@ -33,7 +62,21 @@ class BTLoginViewController: UIViewController, UITextFieldDelegate
         self.nameTextField.delegate = self
         
         self.usedNameMessageLabel.isHidden = true
-    }
+        
+        self.activityIndicator = UIActivityIndicatorView.init(frame: self.view.bounds)
+        self.view.addSubview(self.activityIndicator!)
+        
+        self.activityIndicator?.startAnimating()
+        
+        BTApiManager.sharedManager.isAlive { (isAlive) in
+            self.activityIndicator?.stopAnimating()
+            
+            if isAlive == false
+            {
+                BTAlert.showErrorMessage(message: "Błąd połączenia z serwerem!", sourceViewController: self)
+            }
+        }
+=    }
     
     override func viewDidAppear(_ animated: Bool)
     {
