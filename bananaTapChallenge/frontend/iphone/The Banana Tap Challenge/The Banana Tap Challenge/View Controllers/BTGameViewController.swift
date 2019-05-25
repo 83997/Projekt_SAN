@@ -13,6 +13,7 @@ class BTGameViewController: UIViewController
     @IBOutlet weak var statsButton: UIButton!
     @IBOutlet weak var pointLabel: UILabel!
     @IBOutlet weak var bananaButton: UIButton!
+    @IBOutlet weak var centerView: UIView!
     
     var bananaFrame : CGRect = CGRect.zero
     var pointsFrame : CGRect = CGRect.zero
@@ -53,6 +54,8 @@ class BTGameViewController: UIViewController
         super.viewDidLoad()
         
         self.pointLabel.isHidden = true
+        
+        self.centerView.backgroundColor = .clear
     }
     
     override func viewDidAppear(_ animated: Bool)
@@ -81,13 +84,15 @@ class BTGameViewController: UIViewController
     
     private func animatePoints()
     {
+        self.pointLabel.layer.removeAllAnimations()
+        
         if (self.pointLabel.isHidden)
         {
             self.pointLabel.isHidden = false
         }
-        self.pointLabel.frame.origin.y = (self.view.bounds.size.height / 2) - (self.pointsFrame.size.height / 2)
+        self.pointLabel.frame.origin.y = self.centerView.frame.origin.y
         
-        UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveLinear, animations: {
+        UIView.animate(withDuration: 0.2, delay: 0.0, options: .curveLinear, animations: {
             
             self.pointLabel.frame = self.pointsFrame
             

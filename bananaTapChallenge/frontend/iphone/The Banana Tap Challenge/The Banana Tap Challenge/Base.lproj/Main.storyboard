@@ -49,13 +49,23 @@
                                 <color key="textColor" red="0.64643480330000003" green="0.0" blue="0.018150642929999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sgx-Mi-mTX">
+                                <rect key="frame" x="187" y="363" width="1" height="1"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="LBk-uC-0tQ"/>
+                                    <constraint firstAttribute="width" constant="1" id="yQA-EY-4cn"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.13412350171232876" green="0.60669948630136983" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="tKW-Te-5BZ" secondAttribute="trailing" constant="40" id="7g7-gO-9gY"/>
+                            <constraint firstItem="Sgx-Mi-mTX" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="30" id="VVe-Mf-zO9"/>
                             <constraint firstItem="tKW-Te-5BZ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="40" id="boP-ut-pLd"/>
                             <constraint firstItem="tKW-Te-5BZ" firstAttribute="top" secondItem="FfU-RY-I49" secondAttribute="bottom" id="cDv-q0-IDR"/>
                             <constraint firstItem="tKW-Te-5BZ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="e2f-3f-tBX"/>
+                            <constraint firstItem="Sgx-Mi-mTX" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ve4-Ow-Uc8"/>
                             <constraint firstItem="FfU-RY-I49" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="yGn-2Q-zcA"/>
                             <constraint firstItem="tKW-Te-5BZ" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="zu1-WK-p7I"/>
                         </constraints>
@@ -63,6 +73,7 @@
                     </view>
                     <connections>
                         <outlet property="bananaButton" destination="tKW-Te-5BZ" id="Bni-tU-y1Z"/>
+                        <outlet property="centerView" destination="Sgx-Mi-mTX" id="SH3-Cp-23W"/>
                         <outlet property="pointLabel" destination="FfU-RY-I49" id="VPV-Gd-7YI"/>
                         <outlet property="statsButton" destination="bwb-Tg-D3H" id="5T0-1P-YWM"/>
                         <segue destination="ngP-Br-OGS" kind="presentation" identifier="showLoginScreen" id="ioh-Xd-lq1"/>
