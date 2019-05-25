@@ -40,6 +40,7 @@ class BTStatsViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         self.activityIndicator = UIActivityIndicatorView.init(frame: self.view.bounds)
         self.view.addSubview(self.activityIndicator!)
+        self.stats = BTApiManager.sharedManager.getStats()
         
         self.setUpScore()
     }
