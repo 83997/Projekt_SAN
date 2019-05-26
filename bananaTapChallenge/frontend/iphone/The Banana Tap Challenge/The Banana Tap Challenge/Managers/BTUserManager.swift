@@ -12,7 +12,8 @@ class BTUserManager: NSObject
 {
     private var userToken : String?
     private var userName : String?
-    private var userPoints : Int64 = 0
+    private var score : Int64 = 0
+    private var taps : Int64 = 0
     private var loginStatus : BTLoginStatus = .LoginStatusNotLoggedIn
     private var lastTap : Date?
     
@@ -42,9 +43,14 @@ class BTUserManager: NSObject
         self.userName = name
     }
     
-    public func addPoint()
+    public func setScore(score: Int64)
     {
-        self.userPoints += 1
+        self.score = score
+    }
+    
+    public func registerTap()
+    {
+        self.taps += 1
         
         if let lastTap = self.lastTap
         {
@@ -69,13 +75,24 @@ class BTUserManager: NSObject
         return self.userName
     }
     
-    public func getUserPoints() -> Int64
+    public func getScore() -> Int64
     {
-        return self.userPoints
+        return self.score
+    }
+    
+    public func currentTaps() -> Int64
+    {
+        return self.taps
+    }
+    
+    public func resetTaps()
+    {
+        self.taps = 0
     }
     
     public func resetUserPoints()
     {
-        self.userPoints = 0
+        self.score = 0
+        self.taps = 0
     }
 }

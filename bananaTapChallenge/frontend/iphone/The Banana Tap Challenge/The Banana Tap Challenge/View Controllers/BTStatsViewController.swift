@@ -40,7 +40,6 @@ class BTStatsViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         self.activityIndicator = UIActivityIndicatorView.init(frame: self.view.bounds)
         self.view.addSubview(self.activityIndicator!)
-        self.stats = BTApiManager.sharedManager.getStats()
         
         self.setUpScore()
     }
@@ -87,8 +86,19 @@ class BTStatsViewController: UIViewController, UITableViewDelegate, UITableViewD
             self.stats = stats
             self.tableView.reloadData()
             self.activityIndicator?.stopAnimating()
+            
+            self.getUserScore()
         })
+    }
+    
+    private func getUserScore()
+    {
+        self.activityIndicator?.startAnimating()
 
-        self.scoreLabel.text = BTUserManager.sharedManager.getUserPoints().toString()
+        BTApiManager.sharedManager.getUserScore(handler: { (stat) in
+            self.scoreLabel.text = stat?.totalScore?.toString()
+
+            self.activityIndicator?.stopAnimating()
+        })
     }
 }

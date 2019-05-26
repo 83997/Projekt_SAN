@@ -118,16 +118,16 @@ class BTApiManager: NSObject
                 return
             }
             
-            guard let values = response.result.value as? [String: Int] else {
+            guard let values = response.result.value as? [[String: Any]] else {
                 handler(nil)
                 return
             }
             
             var array = [BTUserStatsModel]()
             
-            for (score, value) in values
+            for json in values
             {
-                let stat = BTUserStatsModel.init(json: [score : value])
+                let stat = BTUserStatsModel.init(json: json)
                 
                 array.append(stat)
             }
@@ -145,13 +145,17 @@ class BTApiManager: NSObject
             return
         }
         
-        Alamofire.request(url, method: .get, parameters: nil).validate().responseJSON { response in
+        let parameters: [String: String] = [
+            "token" : BTKeychainManager.sharedManager.getToken()
+        ]
+        
+        Alamofire.request(url, method: .get, parameters: parameters).validate().responseJSON { response in
             guard response.result.isSuccess else {
                 handler(nil)
                 return
             }
             
-            guard let value = response.result.value as? [String: Int] else {
+            guard let value = response.result.value as? [String: Any] else {
                 handler(nil)
                 return
             }
@@ -169,25 +173,25 @@ class BTApiManager: NSObject
         if force == false
         {
             let elapsed = Date().timeIntervalSince(self.lastSend!)
-            
-            NSLog(String(elapsed.secondsFromTimeInterval()), "")
-            
+                        
             if elapsed > 30
             {
-                NSLog("Sending Sample!", "")
-                
+                NSLog("Sending Sample! Poits to send: " + BTUserManager.sharedManager.currentTaps().toString(), "")
+
                 self.sendSample()
                 
                 self.lastSend = Date()
+                BTUserManager.sharedManager.resetTaps()
             }
         }
         else
         {
-            NSLog("Sending forced Sample!", "")
+            NSLog("Sending forced Sample! Poits to send: " + BTUserManager.sharedManager.currentTaps().toString(), "")
             
             self.sendSample()
             
             self.lastSend = Date()
+            BTUserManager.sharedManager.resetTaps()
         }
     }
     
@@ -197,18 +201,31 @@ class BTApiManager: NSObject
             return
         }
         
-        Alamofire.request(url, method: .post, parameters: nil)
-            .validate(contentType: ["application/json"])
-            .responseJSON { response in
-            guard response.result.isSuccess else {
-                return
-            }
-            
-            guard let values = response.result.value as? [String: Int] else {
-                return
-            }
-                
-            let sampleResult = BTUserSampleResultModel.init(json: values)
+        let mutableURLRequest = NSMutableURLRequest(url: url)
+        mutableURLRequest.httpMethod = "POST"
+        
+        let dateformatter = DateFormatter()
+        
+        dateformatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssX"
+        
+        var now = dateformatter.string(from: Date())
+        var then = dateformatter.string(from: self.lastSend!)
+        
+        now += ":00";
+        then += ":00";
+
+        let parameters: [String: AnyObject] = [
+            "token" : BTKeychainManager.sharedManager.getToken() as NSString,
+            "occuredOn" : then as NSString,
+            "finishedOn" : now as NSString,
+            "count" : BTUserManager.sharedManager.currentTaps() as NSNumber
+        ]
+        
+        Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default)
+            .responseJSON { (response) in
+                guard let _ = response.result.value as? [String: Any?] else {
+                    return
+                }
         }
     }
     
