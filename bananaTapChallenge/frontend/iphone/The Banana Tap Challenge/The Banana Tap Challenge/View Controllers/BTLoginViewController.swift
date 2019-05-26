@@ -76,7 +76,7 @@ class BTLoginViewController: UIViewController, UITextFieldDelegate
                 BTAlert.showErrorMessage(message: "Błąd połączenia z serwerem!", sourceViewController: self)
             }
         }
-=    }
+    }
     
     override func viewDidAppear(_ animated: Bool)
     {

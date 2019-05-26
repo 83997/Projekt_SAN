@@ -73,17 +73,19 @@ class BTGameViewController: UIViewController
         self.activityIndicator?.startAnimating()
 
         BTApiManager.sharedManager.isAlive { (isAlive) in
-            if (BTUserManager.sharedManager.getUserLoginStatus() != .LoginStatusSuccessful)
-            {
-                self.performSegue(withIdentifier: "showLoginScreen", sender: nil)
-            }
-            else
+            if isAlive == false
             {
                 BTAlert.showErrorMessage(message: "Brak połączenia!", sourceViewController: self)
 
                 self.bananaButton.isUserInteractionEnabled = false
                 self.statsButton.isEnabled = false
             }
+            else if (BTUserManager.sharedManager.getUserLoginStatus() != .LoginStatusSuccessful)
+            {
+                self.performSegue(withIdentifier: "showLoginScreen", sender: nil)
+            }
+            
+            self.activityIndicator?.stopAnimating()
         }
     }
     
@@ -95,7 +97,7 @@ class BTGameViewController: UIViewController
         
         self.animatePoints()
         
-        BTUserManager.sharedManager.addPoint()
+        BTUserManager.sharedManager.registerTap()
     }
     
     private func animatePoints()

@@ -10,7 +10,6 @@
 		4B056C98229850DE00E0B9D2 /* BTKeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B056C97229850DE00E0B9D2 /* BTKeychainManager.swift */; };
 		4B751BD7229829EE003705BB /* BTExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B751BD6229829EE003705BB /* BTExtentions.swift */; };
 		4B751BDA22982E63003705BB /* BTUserStatsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B751BD922982E63003705BB /* BTUserStatsModel.swift */; };
-		4B751BDC22982F23003705BB /* BTUserSampleResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B751BDB22982F23003705BB /* BTUserSampleResultModel.swift */; };
 		4B7E6C45227592A2002C23B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7E6C44227592A2002C23B3 /* AppDelegate.swift */; };
 		4B7E6C47227592A2002C23B3 /* BTGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7E6C46227592A2002C23B3 /* BTGameViewController.swift */; };
 		4B7E6C4A227592A2002C23B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B7E6C48227592A2002C23B3 /* Main.storyboard */; };
@@ -33,7 +32,6 @@
 		4B056C97229850DE00E0B9D2 /* BTKeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTKeychainManager.swift; sourceTree = "<group>"; };
 		4B751BD6229829EE003705BB /* BTExtentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTExtentions.swift; sourceTree = "<group>"; };
 		4B751BD922982E63003705BB /* BTUserStatsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTUserStatsModel.swift; sourceTree = "<group>"; };
-		4B751BDB22982F23003705BB /* BTUserSampleResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTUserSampleResultModel.swift; sourceTree = "<group>"; };
 		4B7E6C41227592A2002C23B3 /* The Banana Tap Challenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "The Banana Tap Challenge.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B7E6C44227592A2002C23B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4B7E6C46227592A2002C23B3 /* BTGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTGameViewController.swift; sourceTree = "<group>"; };
@@ -86,7 +84,6 @@
 			isa = PBXGroup;
 			children = (
 				4B751BD922982E63003705BB /* BTUserStatsModel.swift */,
-				4B751BDB22982F23003705BB /* BTUserSampleResultModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -307,7 +304,6 @@
 				4B056C98229850DE00E0B9D2 /* BTKeychainManager.swift in Sources */,
 				4B7E6C47227592A2002C23B3 /* BTGameViewController.swift in Sources */,
 				4B751BD7229829EE003705BB /* BTExtentions.swift in Sources */,
-				4B751BDC22982F23003705BB /* BTUserSampleResultModel.swift in Sources */,
 				4BC147AD2297EC2F0011E2ED /* BTStatsViewController.swift in Sources */,
 				4BB8A0BA2296E096004D6ABB /* BTApiManager.swift in Sources */,
 				4B7E6C45227592A2002C23B3 /* AppDelegate.swift in Sources */,
