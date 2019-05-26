@@ -21,12 +21,13 @@ class BTApiManager: NSObject
     static let sharedManager = BTApiManager()
     
     private var lastSend : Date?
+    private var isReady : Bool = true
 
     private override init()
     {
         super.init()
         
-        lastSend = Date()
+        self.lastSend = Date()
     }
     
     func isAlive(handler: @escaping (Bool) -> Void)
@@ -221,16 +222,19 @@ class BTApiManager: NSObject
             "count" : BTUserManager.sharedManager.currentTaps() as NSNumber
         ]
         
+        self.isReady = false
+        
         Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default)
             .responseJSON { (response) in
+                self.isReady = true
                 guard let _ = response.result.value as? [String: Any?] else {
                     return
                 }
         }
     }
     
-    class func getStats()
+    public func isReadyRequest() -> Bool
     {
-        
+        return self.isReady
     }
 }

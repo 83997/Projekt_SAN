@@ -48,7 +48,20 @@ class BTGameViewController: UIViewController
     
     @IBAction func statsButtonTapped(_ sender: UIButton)
     {
-        self.performSegue(withIdentifier: "showStatsScreen", sender: nil)
+        self.activityIndicator?.startAnimating()
+        
+        while (true)
+        {
+            if BTApiManager.sharedManager.isReadyRequest()
+            {
+                self.performSegue(withIdentifier: "showStatsScreen", sender: nil)
+                break;
+            }
+            else
+            {
+                sleep(1)
+            }
+        }
     }
     
     override func viewDidLoad()
@@ -70,6 +83,13 @@ class BTGameViewController: UIViewController
         self.pointsFrame = self.pointLabel.frame
         self.bananaFrame = self.bananaButton.frame
         
+        if (BTKeychainManager.sharedManager.getToken().count <= 0)
+        {
+            self.performSegue(withIdentifier: "showLoginScreen", sender: nil)
+            
+            return;
+        }
+
         self.activityIndicator?.startAnimating()
 
         BTApiManager.sharedManager.isAlive { (isAlive) in
